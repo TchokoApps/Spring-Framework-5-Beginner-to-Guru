@@ -5,6 +5,7 @@ import com.tchokoapps.springboot.dependencyinjectiondemo.controllers.MyControlle
 import com.tchokoapps.springboot.dependencyinjectiondemo.controllers.PropertyInjectedController;
 import com.tchokoapps.springboot.dependencyinjectiondemo.controllers.SetterInjectedController;
 import com.tchokoapps.springboot.dependencyinjectiondemo.examplebeans.FakeDataSource;
+import com.tchokoapps.springboot.dependencyinjectiondemo.examplebeans.FakeJmsBroker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -37,6 +38,11 @@ public class DependencyInjectionDemoApplication {
         FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
         logger.info(String.format("user = %s, password = %s, db_url = %s", fakeDataSource.getUrl(),
                 fakeDataSource.getPassword(), fakeDataSource.getUrl()));
+
+        FakeJmsBroker fakeJmsBroker = ctx.getBean(FakeJmsBroker.class);
+        logger.info(String.format("jms_user = %s, jms_password = %s, jms__url = %s", fakeJmsBroker.getUrl(),
+                fakeJmsBroker.getPassword(), fakeJmsBroker.getUrl()));
+
     }
 
 }
