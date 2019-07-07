@@ -17,6 +17,8 @@ public class MyController {
     }
 
     public String hello() {
-        return greetingService.sayGreeting();
+        String message = greetingService.sayGreeting();
+        logger.info(message);
+        return message;
     }
 }

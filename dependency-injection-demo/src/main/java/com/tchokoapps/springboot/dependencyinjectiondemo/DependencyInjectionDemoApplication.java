@@ -24,16 +24,16 @@ public class DependencyInjectionDemoApplication {
         ConfigurableApplicationContext ctx = SpringApplication.run(DependencyInjectionDemoApplication.class, args);
 
         MyController myController = (MyController) ctx.getBean("myController");
-        logger.info(myController.hello());
+        myController.hello();
 
         PropertyInjectedController propertyInjectedController = ctx.getBean(PropertyInjectedController.class);
-        logger.info(propertyInjectedController.sayHello());
+        propertyInjectedController.sayHello();
 
         SetterInjectedController setterInjectedController = ctx.getBean(SetterInjectedController.class);
-        logger.info(setterInjectedController.sayHello());
+        setterInjectedController.sayHello();
 
         ConstructorInjectedController constructorInjectedController = ctx.getBean(ConstructorInjectedController.class);
-        logger.info(constructorInjectedController.sayHello());
+        constructorInjectedController.sayHello();
 
         FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
         logger.info(String.format("user = %s, password = %s, db_url = %s", fakeDataSource.getUrl(),
